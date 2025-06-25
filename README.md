@@ -6,7 +6,7 @@ This is a simple web application that allows you to autofill address fields in a
 
 ## Prerequisites
 
-- A browser.
+- An API token for the Dataforsyningen GSearch REST API.
 
 ## How to use
 
