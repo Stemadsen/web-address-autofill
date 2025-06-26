@@ -30,11 +30,15 @@ function addInputEventListener() {
         suggestionsList.innerHTML = '';
         if (suggestions.length === 0) return
 
-        suggestions.forEach(suggestion => {
+        suggestions.forEach((suggestion, index) => {
             const li = document.createElement('li');
             li.textContent = suggestion.visningstekst;
             li.style.cursor = 'pointer';
             li.addEventListener('click', () => selectAddress(suggestion));
+            li.addEventListener('mouseenter', () => {
+                selectedIndex = index;
+                highlightSuggestion();
+            });
             suggestionsList.appendChild(li);
         });
 
