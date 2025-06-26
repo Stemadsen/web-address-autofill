@@ -14,7 +14,12 @@ function addInputEventListener() {
     input.addEventListener('input', async () => {
         selectedIndex = -1;
         const query = input.value.trim();
-        if (query.length < 3) return;
+        if (query.length < 3) {
+            // Clear suggestions if input is empty/too short
+            suggestionsList.innerHTML = '';
+            suggestions = [];
+            return;
+        }
 
         const response = await fetch(`${API_URL}?q=${encodeURIComponent(query)}&limit=10&srid=25832`, {
             headers: {
